@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DronAIr | Servicios de Drones Industriales con IA en Valencia</title>
+<meta name="description" content="DronAIr ofrece servicios de drones industriales con inteligencia artificial para prevención de incendios, inundaciones y emergencias climáticas en Valencia y la Comunitat Valenciana. Operador UAS certificado AESA.">
+<meta name="keywords" content="servicios drones Valencia, drones industriales Comunitat Valenciana, inspección aérea drones, teledetección UAV Valencia, prevención incendios drones, vigilancia emergencias climáticas, operador UAS Valencia, drones DANA inundaciones, cartografía LiDAR drones, inspección infraestructuras drones, ayuntamiento drones Valencia">
+<meta name="robots" content="index, follow">
+<meta name="author" content="DronAIr">
+<meta name="geo.region" content="ES-VC">
+<meta name="geo.placename" content="Valencia, España">
+<link rel="canonical" href="https://dron-air.es/">
+<meta property="og:title" content="DronAIr | Servicios de Drones Industriales con IA en Valencia">
+<meta property="og:description" content="Sistema integrado de drones industriales con IA embarcada para prevención, detección y respuesta ante emergencias climáticas en Valencia y la Comunitat Valenciana.">
+<meta property="og:url" content="https://dron-air.es/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DronAIr | Drones Industriales con IA en Valencia">
+<meta name="twitter:description" content="Prevención, detección y respuesta ante emergencias climáticas con drones industriales e inteligencia artificial. Valencia, España.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #040c18;
+  --bg2: #060f1f;
+  --blue: #1560FF;
+  --blue-dim: #4a7aaf;
+  --blue-glow: rgba(21,96,255,0.15);
+  --blue-glow2: rgba(21,96,255,0.05);
+  --text: #c8d8f0;
+  --text-dim: #8aabcc;
+  --white: #f0f6ff;
+  --grid: rgba(21,96,255,0.08);
+  --line: rgba(21,96,255,0.2);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  overflow-x: hidden;
+}
+
+/* GRID BACKGROUND */
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* NAV */
+nav {
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 20px 60px;
+  background: rgba(4,12,24,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-logo {
+  font-family:'Orbitron', monospace;
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+.nav-logo span { color: var(--blue); }
+
+.nav-links {
+  display:flex;
+  gap:36px;
+  list-style:none;
+}
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration:none;
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:600;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--blue); }
+
+.nav-cta {
+  background: var(--blue);
+  color: white !important;
+  padding: 10px 24px;
+  border: none;
+  font-size:12px !important;
+  letter-spacing:2px !important;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.nav-cta:hover { background: #2b74ff !important; color:white !important; }
+
+/* HERO */
+#hero {
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  padding: 140px 60px 80px;
+  overflow:hidden;
+}
+
+.hero-radar {
+  position:absolute;
+  right:-100px; top:50%;
+  transform:translateY(-50%);
+  width:700px; height:700px;
+  opacity:0.22;
+}
+
+.hero-radar svg {
+  width:100%; height:100%;
+  animation: radarSpin 8s linear infinite;
+}
+
+@keyframes radarSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-tag {
+  font-family:'Share Tech Mono', monospace;
+  font-size:11px;
+  color: var(--blue);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.hero-tag::before {
+  content:'';
+  width:40px; height:1px;
+  background: var(--blue);
+}
+
+h1 {
+  font-family:'Orbitron', monospace;
+  font-size:clamp(48px, 7vw, 88px);
+  font-weight:900;
+  line-height:1;
+  letter-spacing:-1px;
+  margin-bottom:8px;
+  color: var(--white);
+}
+h1 .ai { color: var(--blue); }
+
+.hero-subtitle {
+  font-family:'Orbitron', monospace;
+  font-size:clamp(14px, 2vw, 20px);
+  font-weight:400;
+  color: var(--blue-dim);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:40px;
+}
+
+.hero-desc {
+  max-width:700px;
+  font-size:19px;
+  line-height:1.8;
+  color: var(--text);
+  margin-bottom:48px;
+  font-weight:300;
+}
+
+.hero-desc strong { color: var(--white); font-weight:600; }
+
+.hero-btns {
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: white;
+  padding: 16px 40px;
+  font-family:'Rajdhani', sans-serif;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  text-decoration:none;
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  transition: all 0.3s;
+  display:inline-block;
+}
+.btn-primary:hover {
+  background: #2b74ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(21,96,255,0.4);
+}
+
+.btn-secondary {
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 16px 40px;
+  font-family:'Rajdhani', sans-serif;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  text-decoration:none;
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  transition: all 0.3s;
+  display:inline-block;
+}
+.btn-secondary:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+/* HERO STATS */
+.hero-stats {
+  position:absolute;
+  bottom:60px; right:80px;
+  display:flex;
+  gap:60px;
+}
+.stat {
+  text-align:center;
+}
+.stat-num {
+  font-family:'Orbitron', monospace;
+  font-size:36px;
+  font-weight:900;
+  color: var(--blue);
+  display:block;
+}
+.stat-label {
+  font-size:11px;
+  color: var(--text-dim);
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+/* SCAN LINE ANIMATION */
+.scanline {
+  position:absolute;
+  left:0; right:0;
+  height:2px;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+  animation: scan 4s linear infinite;
+  opacity:0.3;
+}
+@keyframes scan {
+  0% { top:-2px; }
+  100% { top:100%; }
+}
+
+/* IMPACT */
+#impacto {
+  position:relative;
+  z-index:1;
+  padding: 100px 60px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:2px;
+  background: var(--line);
+}
+
+.impacto-card {
+  background: var(--bg2);
+  padding: 56px 48px;
+  text-align:center;
+  border-top: 3px solid transparent;
+  transition: all 0.3s;
+}
+.impacto-card:hover {
+  border-top-color: var(--blue);
+  background: var(--blue-glow2);
+}
+
+.impacto-icon {
+  font-size:40px;
+  margin-bottom:24px;
+  display:block;
+}
+
+.impacto-num {
+  font-family:'Orbitron', monospace;
+  font-size:52px;
+  font-weight:900;
+  color: var(--blue);
+  display:block;
+  margin-bottom:8px;
+}
+
+.impacto-label {
+  font-size:13px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color: var(--text-dim);
+  margin-bottom:16px;
+}
+
+.impacto-desc {
+  font-size:15px;
+  color: var(--text);
+  line-height:1.6;
+  font-weight:300;
+}
+
+/* SECTION COMMON */
+section {
+  position:relative;
+  z-index:1;
+}
+
+.section-tag {
+  font-family:'Share Tech Mono', monospace;
+  font-size:11px;
+  color: var(--blue);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:20px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.section-tag::before {
+  content:'';
+  width:24px; height:1px;
+  background: var(--blue);
+}
+
+h2 {
+  font-family:'Orbitron', monospace;
+  font-size:clamp(28px, 4vw, 48px);
+  font-weight:900;
+  color: var(--white);
+  line-height:1.1;
+  margin-bottom:24px;
+}
+h2 span { color: var(--blue); }
+
+/* QUÉ ES DRONAIR */
+#que-es {
+  padding: 120px 60px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:100px;
+  align-items:center;
+}
+
+.que-es-text p {
+  font-size:17px;
+  line-height:1.8;
+  color: var(--text);
+  margin-bottom:20px;
+  font-weight:300;
+}
+
+.que-es-text strong { color: var(--white); font-weight:600; }
+
+.que-es-visual {
+  position:relative;
+  height:420px;
+  border: 1px solid var(--line);
+  overflow:hidden;
+}
+
+.radar-container {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.radar-bg {
+  width:340px; height:340px;
+  position:relative;
+}
+
+.radar-ring {
+  position:absolute;
+  border-radius:50%;
+  border: 1px solid var(--line);
+}
+.radar-ring:nth-child(1) { inset:0; }
+.radar-ring:nth-child(2) { inset:20%; }
+.radar-ring:nth-child(3) { inset:40%; }
+.radar-ring:nth-child(4) { inset:60%; }
+
+.radar-sweep {
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background: conic-gradient(from 0deg, transparent 330deg, rgba(21,96,255,0.3) 360deg);
+  animation: radarSpin 3s linear infinite;
+}
+
+.radar-dot {
+  position:absolute;
+  width:8px; height:8px;
+  border-radius:50%;
+  background: var(--blue);
+  box-shadow: 0 0 12px var(--blue);
+  animation: blink 2s ease-in-out infinite;
+}
+.radar-dot:nth-child(3) { top:20%; left:65%; animation-delay:0.5s; }
+.radar-dot:nth-child(4) { top:60%; left:25%; animation-delay:1s; }
+.radar-dot:nth-child(5) { top:40%; left:75%; animation-delay:1.5s; }
+
+@keyframes blink {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:0.3; transform:scale(0.5); }
+}
+
+.radar-cross {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.radar-cross::before,
+.radar-cross::after {
+  content:'';
+  position:absolute;
+  background: var(--line);
+}
+.radar-cross::before { width:1px; height:100%; }
+.radar-cross::after { width:100%; height:1px; }
+
+.que-es-corner {
+  position:absolute;
+  font-family:'Share Tech Mono', monospace;
+  font-size:10px;
+  color: var(--blue);
+  letter-spacing:1px;
+}
+.corner-tl { top:12px; left:12px; }
+.corner-tr { top:12px; right:12px; text-align:right; }
+.corner-bl { bottom:12px; left:12px; }
+.corner-br { bottom:12px; right:12px; text-align:right; }
+
+/* IA MÓDULOS */
+#ia {
+  padding: 120px 60px;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 50%, var(--bg) 100%);
+}
+
+.ia-header {
+  text-align:center;
+  margin-bottom:80px;
+}
+
+.ia-grid {
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap:2px;
+}
+
+.modulo {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 40px 28px;
+  position:relative;
+  overflow:hidden;
+  transition: all 0.4s;
+  cursor:default;
+}
+
+.modulo::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:2px;
+  background: var(--blue);
+  transform: scaleX(0);
+  transition: transform 0.4s;
+}
+
+.modulo:hover::before { transform: scaleX(1); }
+.modulo:hover {
+  background: var(--blue-glow2);
+  border-color: var(--blue);
+  transform: translateY(-4px);
+}
+
+.modulo-num {
+  font-family:'Share Tech Mono', monospace;
+  font-size:11px;
+  color: var(--blue);
+  letter-spacing:2px;
+  margin-bottom:20px;
+  display:block;
+}
+
+.modulo-icon {
+  font-size:32px;
+  margin-bottom:20px;
+  display:block;
+}
+
+.modulo h3 {
+  font-family:'Orbitron', monospace;
+  font-size:13px;
+  font-weight:700;
+  color: var(--white);
+  letter-spacing:1px;
+  margin-bottom:12px;
+  text-transform:uppercase;
+}
+
+.modulo p {
+  font-size:13px;
+  line-height:1.6;
+  color: #9bbdd8;
+  font-weight:400;
+}
+
+/* SERVICIOS */
+#servicios {
+  padding: 120px 60px;
+}
+
+.servicios-header {
+  margin-bottom:64px;
+}
+
+.servicios-grid {
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:24px;
+}
+
+.servicio-card {
+  border: 1px solid var(--line);
+  padding: 48px 36px;
+  position:relative;
+  overflow:hidden;
+  transition: all 0.3s;
+}
+
+.servicio-card::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background: linear-gradient(135deg, var(--blue-glow) 0%, transparent 60%);
+  opacity:0;
+  transition: opacity 0.3s;
+}
+
+.servicio-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-4px);
+}
+.servicio-card:hover::after { opacity:1; }
+
+.servicio-icon {
+  font-size:36px;
+  margin-bottom:24px;
+  display:block;
+}
+
+.servicio-card h3 {
+  font-family:'Orbitron', monospace;
+  font-size:15px;
+  font-weight:700;
+  color: var(--white);
+  margin-bottom:12px;
+  text-transform:uppercase;
+}
+
+.servicio-card p {
+  font-size:15px;
+  line-height:1.7;
+  color: #9bbdd8;
+  margin-bottom:20px;
+  font-weight:400;
+}
+
+.servicio-precio {
+  font-family:'Share Tech Mono', monospace;
+  font-size:20px;
+  color: var(--blue);
+  font-weight:700;
+}
+
+/* PARA QUIÉN */
+#para-quien {
+  padding: 100px 60px;
+  background: var(--bg2);
+}
+
+.para-quien-header {
+  text-align:center;
+  margin-bottom:64px;
+}
+
+.clientes-grid {
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:2px;
+}
+
+.cliente-card {
+  background: var(--bg);
+  padding: 40px 32px;
+  text-align:center;
+  border-top: 2px solid transparent;
+  transition: all 0.3s;
+}
+.cliente-card:hover { border-top-color: var(--blue); }
+
+.cliente-icon { font-size:40px; margin-bottom:20px; display:block; }
+.cliente-card h3 {
+  font-family:'Orbitron', monospace;
+  font-size:13px;
+  color: var(--white);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:12px;
+}
+.cliente-card p {
+  font-size:14px;
+  color: var(--text-dim);
+  line-height:1.6;
+}
+
+/* CITA */
+#cita {
+  padding: 100px 60px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+#cita::before {
+  content:'';
+  position:absolute;
+  left:50%; top:50%;
+  transform:translate(-50%,-50%);
+  width:600px; height:600px;
+  border-radius:50%;
+  background: var(--blue-glow);
+  filter: blur(80px);
+  pointer-events:none;
+}
+
+.cita-text {
+  font-family:'Orbitron', monospace;
+  font-size:clamp(20px, 3vw, 32px);
+  font-weight:400;
+  color: var(--white);
+  max-width:800px;
+  margin:0 auto 24px;
+  line-height:1.5;
+  position:relative;
+  z-index:1;
+}
+.cita-text span { color: var(--blue); }
+
+.cita-autor {
+  font-family:'Share Tech Mono', monospace;
+  font-size:12px;
+  color: var(--text-dim);
+  letter-spacing:3px;
+  position:relative;
+  z-index:1;
+}
+
+/* HORIZONTE */
+#horizonte {
+  padding: 120px 60px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:100px;
+  align-items:center;
+}
+
+.timeline {
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+
+.timeline-item {
+  display:flex;
+  gap:24px;
+  position:relative;
+}
+
+.timeline-item:not(:last-child)::after {
+  content:'';
+  position:absolute;
+  left:19px; top:40px;
+  width:1px;
+  height:calc(100% + 0px);
+  background: var(--line);
+}
+
+.timeline-dot {
+  width:40px; height:40px;
+  border: 1px solid var(--blue);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  font-family:'Share Tech Mono', monospace;
+  font-size:11px;
+  color: var(--blue);
+  position:relative;
+  z-index:1;
+  background: var(--bg);
+}
+
+.timeline-content {
+  padding-bottom:40px;
+}
+
+.timeline-content h4 {
+  font-family:'Orbitron', monospace;
+  font-size:13px;
+  color: var(--white);
+  text-transform:uppercase;
+  margin-bottom:6px;
+  letter-spacing:1px;
+}
+
+.timeline-content p {
+  font-size:14px;
+  color: var(--text-dim);
+  line-height:1.6;
+}
+
+.timeline-date {
+  font-family:'Share Tech Mono', monospace;
+  font-size:10px;
+  color: var(--blue);
+  letter-spacing:2px;
+  margin-bottom:8px;
+  display:block;
+}
+
+/* CONTACTO */
+#contacto {
+  padding: 120px 60px;
+  background: var(--bg2);
+  text-align:center;
+}
+
+.contacto-grid {
+  display:flex;
+  justify-content:center;
+  gap:60px;
+  margin-top:60px;
+  flex-wrap:wrap;
+}
+
+.contacto-item {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+
+.contacto-label {
+  font-family:'Share Tech Mono', monospace;
+  font-size:10px;
+  color: var(--text-dim);
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.contacto-value {
+  font-size:18px;
+  color: var(--blue);
+  font-weight:600;
+  text-decoration:none;
+  letter-spacing:1px;
+}
+
+.contacto-value:hover { color: var(--white); }
+
+/* FOOTER */
+footer {
+  padding: 40px 60px;
+  border-top: 1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.footer-logo {
+  font-family:'Orbitron', monospace;
+  font-size:18px;
+  font-weight:900;
+}
+.footer-logo span { color: var(--blue); }
+
+.footer-tagline {
+  font-family:'Share Tech Mono', monospace;
+  font-size:10px;
+  color: var(--text-dim);
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.footer-copy {
+  font-size:12px;
+  color: var(--text-dim);
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(30px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+.hero-tag, h1, .hero-subtitle, .hero-desc, .hero-btns {
+  animation: fadeInUp 0.8s ease both;
+}
+.hero-tag { animation-delay:0.1s; }
+h1 { animation-delay:0.2s; }
+.hero-subtitle { animation-delay:0.3s; }
+.hero-desc { animation-delay:0.4s; }
+.hero-btns { animation-delay:0.5s; }
+
+
+.footer-social {
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+.social-link {
+  color: var(--text-dim);
+  transition: color 0.3s, transform 0.3s;
+  display:flex;
+  align-items:center;
+}
+.social-link:hover {
+  color: var(--blue);
+  transform: translateY(-2px);
+}
+
+
+.nav-tagline {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  color: var(--blue-dim);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 3px;
+  font-weight: 400;
+}
+
+.footer-logo-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--blue-dim);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+/* RESPONSIVE */
+@media (max-width:1024px) {
+  #que-es, #horizonte { grid-template-columns:1fr; gap:48px; }
+  .ia-grid { grid-template-columns: repeat(3,1fr); }
+  .servicios-grid { grid-template-columns:1fr 1fr; }
+  .clientes-grid { grid-template-columns:1fr 1fr; }
+  #impacto { grid-template-columns:1fr; }
+}
+
+@media (max-width:768px) {
+  nav { padding:16px 24px; }
+  .nav-links { display:none; }
+  #hero, #que-es, #ia, #servicios, #para-quien, #cita, #horizonte, #contacto { padding:80px 24px; }
+  .ia-grid { grid-template-columns:1fr; }
+  .servicios-grid { grid-template-columns:1fr; }
+  footer { flex-direction:column; gap:16px; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dron<span>AI</span>r<div class="nav-tagline"><span style="color:#1560FF;font-weight:700;">A</span>rtificial <span style="color:#1560FF;font-weight:700;">I</span>ntelligence for Innovation in Drones</div></div>
+  <ul class="nav-links">
+    <li><a href="#que-es">Sistema</a></li>
+    <li><a href="#ia">Módulos IA</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#horizonte">Horizonte</a></li>
+    <li><a href="#contacto" class="nav-cta">Contactar</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="scanline"></div>
+  <div class="hero-radar">
+    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="195" stroke="#1560FF" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="145" stroke="#1560FF" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="95" stroke="#1560FF" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="45" stroke="#1560FF" stroke-width="0.5"/>
+      <line x1="200" y1="5" x2="200" y2="395" stroke="#1560FF" stroke-width="0.5"/>
+      <line x1="5" y1="200" x2="395" y2="200" stroke="#1560FF" stroke-width="0.5"/>
+      <line x1="62" y1="62" x2="338" y2="338" stroke="#1560FF" stroke-width="0.3" stroke-dasharray="4 8"/>
+      <line x1="338" y1="62" x2="62" y2="338" stroke="#1560FF" stroke-width="0.3" stroke-dasharray="4 8"/>
+      <path d="M200 200 L200 5 A195 195 0 0 1 338 62 Z" fill="#1560FF" opacity="0.15"/>
+    </svg>
+  </div>
+
+  
+
+  <h1>Dron<span class="ai">AI</span>r</h1>
+  <div class="hero-subtitle"><span style="color:#1560FF;">A</span>rtificial <span style="color:#1560FF;">I</span>ntelligence for Innovation in Drones</div>
+
+  <p class="hero-desc">
+    Sistema integrado de <strong>drones industriales con inteligencia artificial</strong> para la prevención, detección y respuesta ante emergencias climáticas en <strong>Valencia y la Comunitat Valenciana</strong>. Nacido de la DANA del 29 de octubre de 2024.
+  </p>
+
+  <div class="hero-btns">
+    <a href="#servicios" class="btn-primary">Ver Servicios</a>
+    <a href="#contacto" class="btn-secondary">Contactar</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">5</span>
+      <span class="stat-label">Módulos IA</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">24/7</span>
+      <span class="stat-label">Operativo</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">+20</span>
+      <span class="stat-label">Años experiencia</span>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACTO -->
+<div id="impacto">
+  <div class="impacto-card">
+    
+    <span class="impacto-num">72h</span>
+    <div class="impacto-label">Ventana crítica</div>
+    <p class="impacto-desc">Las primeras 72 horas tras una catástrofe son determinantes para salvar vidas. DronAIr actúa desde el minuto cero.</p>
+  </div>
+  <div class="impacto-card">
+    
+    <span class="impacto-num">IA</span>
+    <div class="impacto-label">Embarcada</div>
+    <p class="impacto-desc">Análisis en tiempo real sin red externa. La inteligencia está en el dron, no en la nube.</p>
+  </div>
+  <div class="impacto-card">
+    
+    <span class="impacto-num">0</span>
+    <div class="impacto-label">Falsas alarmas</div>
+    <p class="impacto-desc">Sistema de alertas calibradas con confirmación cruzada de múltiples sensores.</p>
+  </div>
+</div>
+
+<!-- QUÉ ES DRONAIR -->
+<section id="que-es">
+  <div class="que-es-text">
+    <div class="section-tag">Sistema · Descripción</div>
+    <h2>Qué es <span>DronAIr</span></h2>
+    <p>DronAIr es un <strong>sistema integrado de drones industriales con IA embarcada</strong> diseñado específicamente para emergencias climáticas en <strong>Valencia y la Comunitat Valenciana</strong>: inundaciones, incendios forestales y catástrofes naturales.</p>
+    <p>A diferencia de los sistemas tradicionales, la <strong>inteligencia artificial no depende de conexión a red externa</strong>. Analiza, decide y alerta en tiempo real directamente desde la plataforma aérea.</p>
+    <p>Operamos tanto en <strong>misiones individuales de precisión</strong> como en <strong>enjambre coordinado</strong> (swarm), maximizando la cobertura de zona en el menor tiempo posible.</p>
+    <p>DronAIr nació directamente de la <strong>DANA del 29 de octubre de 2024</strong> en Valencia. Una respuesta tecnológica a una tragedia real: 238 víctimas, infraestructuras destruidas, y la certeza de que la tecnología podría haber salvado vidas.</p>
+  </div>
+  <div class="que-es-visual">
+    <div class="radar-container">
+      <div class="radar-bg">
+        <div class="radar-ring"></div>
+        <div class="radar-ring"></div>
+        <div class="radar-ring"></div>
+        <div class="radar-ring"></div>
+        <div class="radar-cross"></div>
+        <div class="radar-sweep"></div>
+        <div class="radar-dot"></div>
+        <div class="radar-dot"></div>
+        <div class="radar-dot"></div>
+      </div>
+    </div>
+    <div class="que-es-corner corner-tl">SYS · ACTIVO</div>
+    <div class="que-es-corner corner-tr">ALT: 120m</div>
+    <div class="que-es-corner corner-bl">LAT: 39.4699°N</div>
+    <div class="que-es-corner corner-br">LON: 0.3763°W</div>
+  </div>
+</section>
+
+<!-- IA MÓDULOS -->
+<section id="ia">
+  <div class="ia-header">
+    <div class="section-tag" style="justify-content:center;">Inteligencia Artificial · 5 Módulos</div>
+    <h2>El núcleo <span>inteligente</span></h2>
+    <p style="max-width:600px;margin:0 auto;color:var(--text-dim);font-size:16px;line-height:1.7;">Cinco módulos de IA embarcada que trabajan en tiempo real, sin red, directamente sobre los datos de los sensores LiDAR, térmico y óptico.</p>
+  </div>
+  <div class="ia-grid">
+    <div class="modulo">
+      <span class="modulo-num">M — 01</span>
+      
+      <h3>Detección Inundaciones</h3>
+      <p>Análisis LiDAR + óptico en tiempo real para identificar y mapear zonas inundadas automáticamente.</p>
+    </div>
+    <div class="modulo">
+      <span class="modulo-num">M — 02</span>
+      
+      <h3>Localización Térmica</h3>
+      <p>Reconocimiento de firmas térmicas para detectar y localizar personas en zonas de emergencia.</p>
+    </div>
+    <div class="modulo">
+      <span class="modulo-num">M — 03</span>
+      
+      <h3>Predicción Incendios</h3>
+      <p>Modelo predictivo que anticipa la propagación del fuego usando viento, temperatura y topografía.</p>
+    </div>
+    <div class="modulo">
+      <span class="modulo-num">M — 04</span>
+      
+      <h3>Análisis Terreno</h3>
+      <p>Comparación de modelos 3D LiDAR para detectar cambios evolutivos del terreno tras catástrofes.</p>
+    </div>
+    <div class="modulo">
+      <span class="modulo-num">M — 05</span>
+      
+      <h3>Alertas Calibradas</h3>
+      <p>Filtro inteligente con confirmación cruzada de sensores. Cero falsas alarmas en operaciones críticas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="servicios-header">
+    <div class="section-tag">Servicios · Tarifas</div>
+    <h2>Capacidades <span>operativas</span></h2>
+  </div>
+  <div class="servicios-grid">
+    <div class="servicio-card">
+      
+      <h3>Misión Individual</h3>
+      <p>Vuelo de precisión con plataforma DJI Matrice 350 RTK + sensores LiDAR y térmico. Ideal para inspección puntual y evaluación de daños.</p>
+      <span class="servicio-precio">Desde 480€/misión</span>
+    </div>
+    <div class="servicio-card">
+      
+      <h3>Enjambre Coordinado</h3>
+      <p>Múltiples drones en coordinación autónoma para cobertura máxima de zona en tiempo mínimo. Protocolo de emergencia activo.</p>
+      <span class="servicio-precio">Desde 1.200€/operación</span>
+    </div>
+    <div class="servicio-card">
+      
+      <h3>Monitorización Continua</h3>
+      <p>Vigilancia periódica de zonas de riesgo. Informes automáticos con análisis evolutivo y alertas tempranas ante cambios detectados.</p>
+      <span class="servicio-precio">Desde 2.800€/mes</span>
+    </div>
+    <div class="servicio-card">
+      
+      <h3>Cartografía 3D LiDAR</h3>
+      <p>Generación de modelos digitales del terreno de alta precisión. MDT, curvas de nivel, análisis volumétrico y detección de cambios.</p>
+      <span class="servicio-precio">Desde 650€/km²</span>
+    </div>
+    <div class="servicio-card">
+      
+      <h3>Inspección Aeronáutica</h3>
+      <p>Inspección visual de aeronaves con drones — impactos de rayos, daños estructurales, superficies de control. CRS Cat B1.</p>
+      <span class="servicio-precio">A consultar</span>
+    </div>
+    <div class="servicio-card">
+      
+      <h3>Colaboración Institucional</h3>
+      <p>Protocolos de actuación para protección civil, bomberos, Cruz Roja y administraciones públicas. Formación de equipos incluida.</p>
+      <span class="servicio-precio">A consultar</span>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section id="para-quien">
+  <div class="para-quien-header">
+    <div class="section-tag" style="justify-content:center;">Clientes · Sectores</div>
+    <h2>¿Para <span>quién</span>?</h2>
+  </div>
+  <div class="clientes-grid">
+    <div class="cliente-card">
+      <span class="cliente-icon">🏛️</span>
+      <h3>Administración Pública</h3>
+      <p>Protección civil, ayuntamientos y consejerías con planes de emergencia y gestión del territorio.</p>
+    </div>
+    <div class="cliente-card">
+      <span class="cliente-icon">🚒</span>
+      <h3>Servicios de Emergencia</h3>
+      <p>Bomberos, SAMUR, Cruz Roja y unidades de rescate que necesitan información en tiempo real.</p>
+    </div>
+    <div class="cliente-card">
+      <span class="cliente-icon">🏭</span>
+      <h3>Sector Industrial</h3>
+      <p>Empresas con infraestructuras críticas en zonas de riesgo: energía, agua, transporte e industria.</p>
+    </div>
+    <div class="cliente-card">
+      <span class="cliente-icon">✈️</span>
+      <h3>Aviación y Defensa</h3>
+      <p>MRO, aerolíneas e instituciones con necesidades de inspección técnica aeronáutica con drones.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CITA -->
+<section id="cita">
+  <p class="cita-text">
+    "Desarrollando las herramientas de los <span>futuros</span> desafíos."
+  </p>
+  <div class="cita-autor">DronAIr · Valencia · España · 2026</div>
+</section>
+
+<!-- HORIZONTE -->
+<section id="horizonte">
+  <div>
+    <div class="section-tag">Horizonte · Roadmap</div>
+    <h2>El camino <span>por delante</span></h2>
+    <p style="color:var(--text-dim);line-height:1.8;margin-bottom:32px;">DronAIr está en fase de constitución operativa con expansión planificada hacia los principales eventos del sector aeronáutico y de drones en Europa.</p>
+    <a href="#contacto" class="btn-primary">Colaborar con DronAIr</a>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot">Q2</div>
+      <div class="timeline-content">
+        <span class="timeline-date">Mayo — Junio 2026</span>
+        <h4>Constitución Operativa</h4>
+        <p>Alta AESA, manual de operaciones, adquisición equipos DJI Matrice 350 RTK y sensórica LiDAR.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot">Q3</div>
+      <div class="timeline-content">
+        <span class="timeline-date">Junio — Octubre 2026</span>
+        <h4>Desarrollo IA y Validación</h4>
+        <p>Integración de los 5 módulos de IA embarcada. Mínimo 10 vuelos de validación en campo.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot">Q4</div>
+      <div class="timeline-content">
+        <span class="timeline-date">Septiembre 2026</span>
+        <h4>UNVEX · TECNOSEC DRONExpo</h4>
+        <p>Presencia en los principales eventos sectoriales nacionales. San Javier y Madrid.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot">DIC</div>
+      <div class="timeline-content">
+        <span class="timeline-date">Diciembre 2026</span>
+        <h4>EDOS · Feria Valencia</h4>
+        <p>European Drone Operator Summit. Presentación a inversores y operadores europeos.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot">27</div>
+      <div class="timeline-content">
+        <span class="timeline-date">Junio 2027</span>
+        <h4>Paris Air Show · Le Bourget</h4>
+        <p>Objetivo internacional. Presentación del sistema DronAIr en el mayor evento aeronáutico mundial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-tag" style="justify-content:center;">Contacto · Valencia</div>
+  <h2>Hablemos de <span>tu proyecto</span></h2>
+  <p style="color:var(--text-dim);max-width:500px;margin:0 auto 16px;line-height:1.7;">Estamos en fase de lanzamiento y buscamos primeros clientes y colaboradores institucionales.</p>
+
+  <div class="contacto-grid">
+    <div class="contacto-item">
+      <span class="contacto-label">Email</span>
+      <a href="mailto:dronair@dron-air.es" class="contacto-value">dronair@dron-air.es</a>
+    </div>
+    <div class="contacto-item">
+      <span class="contacto-label">Email general</span>
+      <a href="mailto:info@dron-air.es" class="contacto-value">info@dron-air.es</a>
+    </div>
+    <div class="contacto-item">
+      <span class="contacto-label">Teléfono</span>
+      <a href="tel:+34665687077" class="contacto-value">+34 665 687 077</a>
+    </div>
+    <div class="contacto-item">
+      <span class="contacto-label">Ubicación</span>
+      <span class="contacto-value">Valencia, España</span>
+    </div>
+    <div class="contacto-item">
+      <span class="contacto-label">Web</span>
+      <span class="contacto-value">dron-air.es</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Dron<span>AI</span>r<div class="footer-logo-tag"><span style="color:#1560FF;">A</span>rtificial <span style="color:#1560FF;">I</span>ntelligence for Innovation in Drones</div></div>
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/company/dronair" target="_blank" class="social-link" title="LinkedIn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/dronair.es" target="_blank" class="social-link" title="Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@dronair" target="_blank" class="social-link" title="YouTube">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+  </div>
+  <div class="footer-copy">© 2026 DronAIr · Valencia, España · Fundador: Leonardo Grifol</div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DronAIr",
+  "description": "Servicios de drones industriales con inteligencia artificial para prevención, detección y respuesta ante emergencias climáticas en Valencia y la Comunitat Valenciana.",
+  "url": "https://dron-air.es",
+  "email": "dronair@dron-air.es",
+  "telephone": "+34665687077",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Valencia",
+    "addressRegion": "Comunitat Valenciana",
+    "addressCountry": "ES"
+  },
+  "areaServed": {"@type": "State", "name": "Comunitat Valenciana"},
+  "serviceType": ["Servicios de drones industriales", "Inspección aérea con drones", "Teledetección UAV", "Cartografía LiDAR", "Prevención de incendios con drones", "Vigilancia emergencias climáticas", "Inspección aeronáutica con drones"],
+  "foundingDate": "2026",
+  "founder": {"@type": "Person", "name": "Leonardo Grifol"}
+}
+</script>
+</body>
+</html>
